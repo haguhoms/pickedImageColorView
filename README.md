@@ -1,0 +1,2 @@
+# pickedImageColorView
+中の画像の色を背景に指定するView
