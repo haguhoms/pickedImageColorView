@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickedImageColorView" customModule="pickedImageColorView" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="XrC-ND-e26" id="wfn-Fv-rTi"/>
+                <outlet property="innerView" destination="iN0-l3-epB" id="roe-gi-b7F"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

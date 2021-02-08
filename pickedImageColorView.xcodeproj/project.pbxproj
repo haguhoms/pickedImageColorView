@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C2D9D37E36AC381120F7628 /* Pods_pickedImageColorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DAE24A8B5CA5290C72E971D /* Pods_pickedImageColorView.framework */; };
+		A80DCDC825D0DDB80007C6C7 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DCDC725D0DDB80007C6C7 /* UIImageView+.swift */; };
 		A817AD7325D01B4700B6F1D6 /* PickedImageColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A817AD7225D01B4700B6F1D6 /* PickedImageColorView.swift */; };
 		A817AD7725D01B5000B6F1D6 /* PickedImageColorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A817AD7625D01B5000B6F1D6 /* PickedImageColorView.xib */; };
 		A817AD7C25D0211B00B6F1D6 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A817AD7B25D0211A00B6F1D6 /* BaseView.swift */; };
@@ -21,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B48846B6069D6C2B3A65B09 /* Pods-pickedImageColorView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pickedImageColorView.release.xcconfig"; path = "Target Support Files/Pods-pickedImageColorView/Pods-pickedImageColorView.release.xcconfig"; sourceTree = "<group>"; };
+		9DAE24A8B5CA5290C72E971D /* Pods_pickedImageColorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pickedImageColorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A80DCDC725D0DDB80007C6C7 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		A817AD7225D01B4700B6F1D6 /* PickedImageColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickedImageColorView.swift; sourceTree = "<group>"; };
 		A817AD7625D01B5000B6F1D6 /* PickedImageColorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickedImageColorView.xib; sourceTree = "<group>"; };
 		A817AD7B25D0211A00B6F1D6 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -34,6 +39,7 @@
 		A8FDCD3D25CD4F89002BF090 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8FDCD4025CD4F89002BF090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8FDCD4225CD4F89002BF090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEB3E735EE02849353F3E4C7 /* Pods-pickedImageColorView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pickedImageColorView.debug.xcconfig"; path = "Target Support Files/Pods-pickedImageColorView/Pods-pickedImageColorView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,12 +47,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C2D9D37E36AC381120F7628 /* Pods_pickedImageColorView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30EE495B39AF51B0F75BCF96 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DAE24A8B5CA5290C72E971D /* Pods_pickedImageColorView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9AC9D361ABFEE7B2B78CB9CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DEB3E735EE02849353F3E4C7 /* Pods-pickedImageColorView.debug.xcconfig */,
+				9B48846B6069D6C2B3A65B09 /* Pods-pickedImageColorView.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A817AD7125D01B3300B6F1D6 /* PickedImageColorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +101,7 @@
 			children = (
 				A817AD8025D0214400B6F1D6 /* Bundle+.swift */,
 				A817AD8325D0216100B6F1D6 /* UIView+.swift */,
+				A80DCDC725D0DDB80007C6C7 /* UIImageView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -86,6 +111,8 @@
 			children = (
 				A8FDCD3325CD4F88002BF090 /* pickedImageColorView */,
 				A8FDCD3225CD4F88002BF090 /* Products */,
+				9AC9D361ABFEE7B2B78CB9CE /* Pods */,
+				30EE495B39AF51B0F75BCF96 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8FDCD4525CD4F89002BF090 /* Build configuration list for PBXNativeTarget "pickedImageColorView" */;
 			buildPhases = (
+				543333F55061E32712631EE7 /* [CP] Check Pods Manifest.lock */,
 				A8FDCD2D25CD4F88002BF090 /* Sources */,
 				A8FDCD2E25CD4F88002BF090 /* Frameworks */,
 				A8FDCD2F25CD4F88002BF090 /* Resources */,
+				9C072D712DAF97224AD50F54 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,6 +241,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		543333F55061E32712631EE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-pickedImageColorView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C072D712DAF97224AD50F54 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-pickedImageColorView/Pods-pickedImageColorView-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-pickedImageColorView/Pods-pickedImageColorView-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pickedImageColorView/Pods-pickedImageColorView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A8FDCD2D25CD4F88002BF090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -221,6 +292,7 @@
 				A8FDCD3525CD4F88002BF090 /* AppDelegate.swift in Sources */,
 				A817AD8425D0216100B6F1D6 /* UIView+.swift in Sources */,
 				A817AD7C25D0211B00B6F1D6 /* BaseView.swift in Sources */,
+				A80DCDC825D0DDB80007C6C7 /* UIImageView+.swift in Sources */,
 				A817AD8125D0214400B6F1D6 /* Bundle+.swift in Sources */,
 				A817AD7325D01B4700B6F1D6 /* PickedImageColorView.swift in Sources */,
 				A8FDCD3725CD4F88002BF090 /* SceneDelegate.swift in Sources */,
@@ -367,6 +439,7 @@
 		};
 		A8FDCD4625CD4F89002BF090 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEB3E735EE02849353F3E4C7 /* Pods-pickedImageColorView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -385,6 +458,7 @@
 		};
 		A8FDCD4725CD4F89002BF090 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B48846B6069D6C2B3A65B09 /* Pods-pickedImageColorView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
