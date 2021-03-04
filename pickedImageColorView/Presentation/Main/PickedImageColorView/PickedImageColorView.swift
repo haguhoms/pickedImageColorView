@@ -8,25 +8,34 @@
 import Foundation
 import UIKit
 
-struct ColorFrequency {
-    let color: UIColor
-    var count: Int
-}
-
 final class PickedImageColorView: BaseView {
 
     @IBOutlet private weak var innerView: UIView!
     @IBOutlet private weak var imageView: UIImageView!
 
-    private var pickedColors: [UIColor] = []
+    private var colorFrequencies: [ColorFrequency] = []
 
-    func setImage(_ imageUrl: String) {
-        self.imageView.setImage(with: imageUrl, placeholder: nil, completed: { [weak self] _ in
+    // 無視したい色
+    private let excludeColors: [ColorFactor] = [
+        .init(red: 0, green: 0, blue: 0, alpha: 0),
+        .init(red: 1, green: 1, blue: 1, alpha: 1),
+    ]
+
+    func setImage(_ imageUrl: String, pickType: PickType) {
+        self.imageView.setImage(with: imageUrl, placeholder: nil, completed: { [weak self] response in
             guard let self = self else { return }
-            self.pickColor()
-            let colorFrequencies = self.arrangeColorFrequency()
-            let majorColor = self.getMajorColor(colorFrequencies: colorFrequencies)
-            self.innerView.backgroundColor = majorColor
+            guard case .success(let imageResponse) = response else { return }
+
+            self.pickColor(image: imageResponse.image)
+
+            let pickedColor: UIColor = {
+                switch pickType {
+                case .major: return self.getMajorColor(colorFrequencies: self.colorFrequencies)
+                case .mixed: return self.getMixedColor(colorFrequencies: self.colorFrequencies)
+                }
+            }()
+
+            self.innerView.backgroundColor = pickedColor
         })
     }
 }
@@ -34,9 +43,8 @@ final class PickedImageColorView: BaseView {
 // MARK: - pick color
 extension PickedImageColorView {
 
-    private func pickColor() {
-        guard let image = self.imageView.image,
-              let provider = image.cgImage?.dataProvider,
+    private func pickColor(image: UIImage) {
+        guard let provider = image.cgImage?.dataProvider,
               let data = CFDataGetBytePtr(provider.data) else {
             return
         }
@@ -46,55 +54,56 @@ extension PickedImageColorView {
         let maxWidth: Int = Int(image.size.width)
         let maxHeight: Int = Int(image.size.height)
 
-        let alphaColor: UIColor = .init(red: .zero, green: .zero, blue: .zero, alpha: .zero)
-
         for x in 0..<maxWidth {
             for y in 0..<maxHeight {
                 let targetPixel = (maxWidth * y + x) * numberOfComponents
-                let color: UIColor = .init(
-                    red: CGFloat(data[targetPixel]) / 255.0,
-                    green: CGFloat(data[targetPixel + 1]) / 255.0,
-                    blue: CGFloat(data[targetPixel + 2]) / 255.0,
-                    alpha: CGFloat(data[targetPixel + 3]) / 255.0
+                let color: ColorFactor = .init(
+                    red: Int(data[targetPixel]),
+                    green: Int(data[targetPixel + 1]),
+                    blue: Int(data[targetPixel + 2]),
+                    alpha: Int(data[targetPixel + 3])
                 )
 
-                // 透明色は除く
-                if alphaColor != color {
-                    self.pickedColors.append(color)
+                if !self.excludeColors.contains(color) {
+                    self.arrangeColorFrequency(color: color)
                 }
             }
         }
     }
 
-    private func arrangeColorFrequency() -> [ColorFrequency] {
-        var colorFrequencies: [ColorFrequency] = []
-        
-        self.pickedColors.enumerated().forEach { index, pickedColor in
-            if colorFrequencies.contains(where: { colorFrequency in
-                colorFrequency.color == pickedColor
-            }) {
-                let index = colorFrequencies.firstIndex(where: { $0.color == pickedColor })!
-                colorFrequencies[index].count += 1
-            }
-            else {
-                colorFrequencies.append(.init(color: pickedColor, count: 1))
-            }
+    private func arrangeColorFrequency(color: ColorFactor) {
+        if let index = self.colorFrequencies.firstIndex(where: { $0.color == color }) {
+            self.colorFrequencies[index].count += 1
         }
-
-        return colorFrequencies
+        else {
+            self.colorFrequencies.append(.init(color: color, count: 1))
+        }
     }
 
     private func getMajorColor(colorFrequencies: [ColorFrequency]) -> UIColor {
-        guard var majorColor: ColorFrequency = colorFrequencies.first else {
+        guard let majorColor: UIColor = colorFrequencies.sorted(by: { $0.count > $1.count }).first?.color.uiColor else {
             return .init()
         }
 
+        return majorColor
+    }
+
+    // FIXME:
+    // この処理だと一度全pixelを走査してColorFrequencyの配列を作り、その配列をさらに走査しているので処理が多くなってしまっている
+    // mixedに関してはColorFrequencyの配列は必要ないので処理を変えるのが良さそう
+    private func getMixedColor(colorFrequencies: [ColorFrequency]) -> UIColor {
+        var color: ColorFactor = .zero
+        let count: Int = colorFrequencies.reduce(0) { $0 + $1.count }
+
         colorFrequencies.forEach { colorFrequency in
-            if colorFrequency.count > majorColor.count {
-                majorColor = colorFrequency
-            }
+            let singleCount: Int = colorFrequency.count
+
+            color.red += colorFrequency.color.red * singleCount
+            color.green += colorFrequency.color.green * singleCount
+            color.blue += colorFrequency.color.blue * singleCount
+            color.alpha += colorFrequency.color.alpha * singleCount
         }
 
-        return majorColor.color
+        return color.calculateMixedColor(count: count)
     }
 }

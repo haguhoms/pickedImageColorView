@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.pickedImageColorView.setImage("https://zukan.pokemon.co.jp/zukan-api/up/images/index/7659ce2b6e793d5df430205199c7203a.png")
+        self.pickedImageColorView.setImage("https://1.bp.blogspot.com/-aE1d5IM9FuY/XwkxlUXaVYI/AAAAAAABaC4/5Y9ueDFkL-ktyOHXczaj5dvlCXieT-pigCNcBGAsYHQ/s400/syougatsu_mark_mochi.png", pickType: .mixed)
     }
 
 }

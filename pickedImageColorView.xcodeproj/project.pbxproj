@@ -14,6 +14,10 @@
 		A817AD7C25D0211B00B6F1D6 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A817AD7B25D0211A00B6F1D6 /* BaseView.swift */; };
 		A817AD8125D0214400B6F1D6 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A817AD8025D0214400B6F1D6 /* Bundle+.swift */; };
 		A817AD8425D0216100B6F1D6 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A817AD8325D0216100B6F1D6 /* UIView+.swift */; };
+		A81823E325DBDAF800D2372F /* PickType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81823E225DBDAF800D2372F /* PickType.swift */; };
+		A81823E625DBDB1300D2372F /* ColorFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81823E525DBDB1300D2372F /* ColorFrequency.swift */; };
+		A8288D9625DCDEF3007C1D5E /* ColorFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8288D9525DCDEF3007C1D5E /* ColorFactor.swift */; };
+		A8F6857725DCC1AD004239DC /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F6857625DCC1AD004239DC /* UIImage+.swift */; };
 		A8FDCD3525CD4F88002BF090 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FDCD3425CD4F88002BF090 /* AppDelegate.swift */; };
 		A8FDCD3725CD4F88002BF090 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FDCD3625CD4F88002BF090 /* SceneDelegate.swift */; };
 		A8FDCD3925CD4F88002BF090 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FDCD3825CD4F88002BF090 /* ViewController.swift */; };
@@ -31,6 +35,10 @@
 		A817AD7B25D0211A00B6F1D6 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		A817AD8025D0214400B6F1D6 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 		A817AD8325D0216100B6F1D6 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		A81823E225DBDAF800D2372F /* PickType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickType.swift; sourceTree = "<group>"; };
+		A81823E525DBDB1300D2372F /* ColorFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFrequency.swift; sourceTree = "<group>"; };
+		A8288D9525DCDEF3007C1D5E /* ColorFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFactor.swift; sourceTree = "<group>"; };
+		A8F6857625DCC1AD004239DC /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		A8FDCD3125CD4F88002BF090 /* pickedImageColorView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pickedImageColorView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8FDCD3425CD4F88002BF090 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8FDCD3625CD4F88002BF090 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +84,9 @@
 			children = (
 				A817AD7225D01B4700B6F1D6 /* PickedImageColorView.swift */,
 				A817AD7625D01B5000B6F1D6 /* PickedImageColorView.xib */,
+				A81823E225DBDAF800D2372F /* PickType.swift */,
+				A81823E525DBDB1300D2372F /* ColorFrequency.swift */,
+				A8288D9525DCDEF3007C1D5E /* ColorFactor.swift */,
 			);
 			path = PickedImageColorView;
 			sourceTree = "<group>";
@@ -102,6 +113,7 @@
 				A817AD8025D0214400B6F1D6 /* Bundle+.swift */,
 				A817AD8325D0216100B6F1D6 /* UIView+.swift */,
 				A80DCDC725D0DDB80007C6C7 /* UIImageView+.swift */,
+				A8F6857625DCC1AD004239DC /* UIImage+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -293,7 +305,11 @@
 				A817AD8425D0216100B6F1D6 /* UIView+.swift in Sources */,
 				A817AD7C25D0211B00B6F1D6 /* BaseView.swift in Sources */,
 				A80DCDC825D0DDB80007C6C7 /* UIImageView+.swift in Sources */,
+				A81823E325DBDAF800D2372F /* PickType.swift in Sources */,
+				A8288D9625DCDEF3007C1D5E /* ColorFactor.swift in Sources */,
+				A81823E625DBDB1300D2372F /* ColorFrequency.swift in Sources */,
 				A817AD8125D0214400B6F1D6 /* Bundle+.swift in Sources */,
+				A8F6857725DCC1AD004239DC /* UIImage+.swift in Sources */,
 				A817AD7325D01B4700B6F1D6 /* PickedImageColorView.swift in Sources */,
 				A8FDCD3725CD4F88002BF090 /* SceneDelegate.swift in Sources */,
 			);
